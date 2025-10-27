@@ -3,10 +3,12 @@
 CoordMode "Mouse", "Window"
 
 ; How long to hold each point (ms)
-holdTime := 500  ; 0.5 seconds
-walkTime:= 500  ; 0.5 seconds
-spellTime := 100 ; .1 second between cast
-pickTime := 50 ; .05 between pick ups
+secTime := 1000    ; 1 seconds
+halfSecTime := 500 ; .5 seconds
+walkTime:= 500      ; 0.5 seconds
+spellTime := 200    ; .2 second between cast
+slamTime := 100     ; .1 second between slam casts
+pickTime := 50      ; .05 between pick ups
 
 
 ;List of coord variables
@@ -63,18 +65,18 @@ px := 1213, py := 500
             ;move down
             MouseMove Downx, Downy
             Click "Down"
-            Sleep holdTime
+            Sleep walkTime
             Click "Up"
-            Sleep holdTime
+            Sleep walkTime
 
         }
         
        Loop 23{     
             MouseMove Upx, Upy
             Click "Down"
-            Sleep holdTime
+            Sleep walkTime
             Click "Up"
-            Sleep holdTime
+            Sleep walkTime
        }
     }
 }
@@ -83,49 +85,52 @@ px := 1213, py := 500
 ^2::{
         ;Beserk for crystals
         MouseMove A5x, A5y
-        Click "Down"
-        Sleep spellTime
-        Click "Up"
-        Sleep holdTime
+        Loop 5{
+            Click
+            Sleep spellTime
+        }
+        Sleep secTime
 
         ;Autoattack
         MouseMove AAx, AAy
-        Click 
-        CLick
+        Loop 5{
+            Click
+            Sleep spellTime
+        }
+        Sleep secTime
 
         ;Crit
         MouseMove A1x, A1y
-        Loop 4{
+        Loop 3{
             Click
+            Sleep spellTime
         }
-        Sleep holdTime
-        Sleep holdTime
-        Sleep holdTime
+        Sleep halfSecTime
+
 
         ;Sweep
         MouseMove A2x, A2y
-        Loop 4{
+        Loop 3{
             Click
             Sleep spellTime
         }
 
         ;WS
         MouseMove A3x, A3y
-        Click 
-        Click
-        Sleep spellTime
-
-        ;Slam
-        Loop 75{
-            MouseMove A4x, A4y
+        Loop 3{
             Click
             Sleep spellTime
+        }
+
+        ;Slam
+        Loop 60{
+            MouseMove A4x, A4y
+            Click
+            Sleep slamTime
         }
 
 }
 
 ; Kill switch
 ^q::ExitApp
-
-
 

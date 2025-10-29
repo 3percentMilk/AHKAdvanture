@@ -129,6 +129,13 @@ px := 1213, py := 500
             Sleep slamTime
         }
 
+        ;Pickup
+        Loop 100{
+            MouseMove px, py
+            Click
+            Sleep pickTime
+        }
+
 }
 
 ; Kill switch

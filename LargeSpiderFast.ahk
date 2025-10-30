@@ -147,7 +147,7 @@ px := 1213, py := 500
         Click "Up"
 
         ;Pickup
-        Loop 100{
+        Loop 50{
             MouseMove px, py
             Click
             Sleep pickTime
@@ -155,77 +155,6 @@ px := 1213, py := 500
 
         sleep halfSecTime
 
-
-        ;wait for beserk sweep  cd 6 seconds
-        ;auto attack for remaining cd to get crystals
-        MouseMove AAx, AAy
-        Loop 12{
-            Click
-            Sleep halfSecTime
-        }
-
-        ;Slam again to finish off mobs
-        ;Uses Beserk (keep crystals above 5)
-        MouseMove A5x, A5y
-        Loop 5{
-            Click
-            Sleep spellTime
-        }
-        Sleep halfSecTime
-
-        ;Autoattack
-        MouseMove AAx, AAy
-        Loop 5{
-            Click
-            Sleep spellTime
-        }
-        Sleep halfSecTime
-
-        ;Crit
-        MouseMove A1x, A1y
-        Loop 3{
-            Click
-            Sleep spellTime
-        }
-        Sleep halfSecTime
-
-        ;Sweep
-        MouseMove A2x, A2y
-        Loop 3{
-            Click
-            Sleep spellTime
-        }
-
-        ;WS
-        MouseMove A3x, A3y
-        Loop 3{
-            Click
-            Sleep spellTime
-        }
-
-        ;Slam
-        Loop 60{
-            MouseMove A4x, A4y
-            Click
-            Sleep slamTime
-        }
-        Sleep halfSecTime
-
-
-        ;Pickup
-        Loop 100{
-            MouseMove px, py
-            Click
-            Sleep pickTime
-        }
-
-        Sleep halfSecTime
-
-        ;move back to start position
-        MouseMove Upx, Upy
-        Click "Down"
-        Sleep walkTime
-        Click "Up"
 
         ;Sleep for 2:55 min
         Loop 88{
